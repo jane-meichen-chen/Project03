@@ -1,0 +1,75 @@
+The dataset includes the following files:
+=========================================
+
+- 'README.txt'
+
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+
+- 'features.txt': List of all features.
+
+- 'activity_labels.txt': Links the class labels with their activity name.
+
+- 'train/X_train.txt': Training set.
+
+- 'train/y_train.txt': Training labels.
+
+- 'test/X_test.txt': Test set.
+
+- 'test/y_test.txt': Test labels.
+
+The following files are available for the train and test data. Their descriptions are equivalent. 
+
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_y_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+
+- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+
+- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
+
+Notes: 
+======
+- Features are normalized and bounded within [-1,1].
+- Each feature vector is a row on the text file.
+
+For more information about this dataset contact: activityrecognition@smartlab.ws
+
+License:
+========
+Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
+
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
+
+
+
+==================my edits start here===============
+
+
+ 
+- training and test data are combined by using rbind()
+- subject (ID) and activity label are combined with the data by using cbind()
+- only mean and standard deviation (s.d.) of each measurements are selected for the tidy data.
+- activity was originally coded in number (1 to 6), they are converted into factor labels using the activity_labels.txt
+- the variable names are changed to make it more descriptive (e.g. t - time; f - frequency; acc - accelerometer and etc.)
+- data is then ordered by subject and activity with s.d. removed 
+
+intermediate variables listed below: 
+- ActivityTest: test group activity code
+- ActivityTrain: training group activity code
+- SubjectTest:test group subject number (ID)
+- SubjectTrain: training group subject number (ID)
+- DataTest: test group measurements
+- DataTrain: training group measurements 
+- VNames: variable names from features.txt
+- Subjects: combined subject number (ID) of both training and test groups
+- Activities: combined activity code for both groups
+- Datas: bombined data for both groups 
+- combinedData: result data of combined groups with activity code and subject ID
+- m_sd: variable names with mean and s.d.
+- select: desired column for data with only mean and s.d.
+- activityLabels: factor of the labels
+- tidyData: final tidied Data 
