@@ -32,3 +32,5 @@ You should create one R script called run_analysis.R that does the following.
 4. select columns with only mean and standard deviation of each variables and save the dataset into object data frame Data
 5. change the abbreviated variable names to full names
 6. order the data with subject and activity to create the final result: tidyData and exported to tidyData.txt
+
+source run_analysis.R and execute function run_analysis() to get the tidied data
